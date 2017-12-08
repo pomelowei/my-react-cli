@@ -39,7 +39,7 @@ const config = {
       //   loader: "eslint-loader"
       // },
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loaders: [
           'babel-loader',
         ],

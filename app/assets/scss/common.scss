@@ -1,0 +1,62 @@
+$color: #262828;
+$seaGreen: #49c5b6;
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: $color;
+  margin: auto;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  background: #f4f7f6;
+  overflow-x: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: $seaGreen;
+  text-decoration: none;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: none;
+}
+
+.btn-green {
+  position: relative;
+  display: inline-block;
+  height: 60px;
+  padding: 0 35px;
+  background-color: #49c5b6;
+  color: #fff;
+  line-height: 60px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-green:hover {
+  color: #fff;
+  background-color: #42AB9E;
+}
