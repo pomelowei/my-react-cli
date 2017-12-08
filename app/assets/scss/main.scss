@@ -1,5 +1,14 @@
 $color: #262828;
+$seaGreen: #49c5b6;
 
 body {
   color: $color;
+}
+
+//header
+.header-visible {
+  #header {
+    position: relative;
+    height: 140px;
+  }
 }
