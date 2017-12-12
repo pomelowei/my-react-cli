@@ -1,4 +1,4 @@
-const { resolve } = require('path');
+const {resolve} = require('path');
 
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -19,7 +19,7 @@ const config = {
   output: {
     filename: 'bundle.js',
     path: resolve(__dirname, 'dist'),
-    publicPath: '',
+    publicPath: '/',
   },
 
   context: resolve(__dirname, 'app'),
@@ -27,7 +27,8 @@ const config = {
   devServer: {
     hot: true,
     contentBase: resolve(__dirname, 'build'),
-    publicPath: '/'
+    publicPath: '/',
+    historyApiFallback: true
   },
 
   module: {
@@ -139,9 +140,9 @@ const config = {
       },
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new ExtractTextPlugin({ filename: './styles/style.css', disable: false, allChunks: true }),
-    new CopyWebpackPlugin([{ from: 'vendors', to: 'vendors' }]),
-    new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
+    new ExtractTextPlugin({filename: './styles/style.css', disable: false, allChunks: true}),
+    new CopyWebpackPlugin([{from: 'vendors', to: 'vendors'}]),
+    new OpenBrowserPlugin({url: 'http://localhost:8080'}),
     new webpack.HotModuleReplacementPlugin(),
   ],
 };

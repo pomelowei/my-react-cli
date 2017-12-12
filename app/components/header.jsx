@@ -29,18 +29,7 @@ function HeaderTop() {
       </div>
   );
 }
-function MenuButton() {
-  return (
-      <div className="btn-menu item">
-        <div className="icon-menu">
-          <div className="bar"/>
-          <div className="bar"/>
-          <div className="bar"/>
-        </div>
-        <span>Menu</span>
-      </div>
-  );
-}
+
 function SearchButton() {
   return (
       <div className="btn-search item">
@@ -48,6 +37,7 @@ function SearchButton() {
       </div>
   );
 }
+
 function LoginButton() {
   return (
       <div className="btn-login item">
@@ -55,6 +45,7 @@ function LoginButton() {
       </div>
   );
 }
+
 function SubmitButton() {
   return (
       <div className="btn-submit btn-green">
@@ -62,31 +53,58 @@ function SubmitButton() {
       </div>
   );
 }
-function HeaderMain() {
-  return (
-      <div className="header-main">
-        <div className="box-left">
-          <MenuButton />
-          <SearchButton />
+
+class HeaderMain extends React.Component {
+  constructor(props) {
+    super(props);
+    this.showSidebar = this.showSidebar.bind(this);
+  }
+
+  showSidebar(e) {
+    this.props.valueChange(true);
+  }
+
+  render() {
+    return (
+        <div className="header-main">
+          <div className="box-left">
+            <div className="btn-menu item" onClick={this.showSidebar}>
+              <div className="icon-menu">
+                <div className="bar"/>
+                <div className="bar"/>
+                <div className="bar"/>
+              </div>
+              <span>Menu</span>
+            </div>
+            <SearchButton />
+          </div>
+          <div className="box-center">
+            <span className="logo">AWWWARDS</span>
+          </div>
+          <div className="box-right">
+            <SubmitButton />
+            <LoginButton />
+          </div>
         </div>
-        <div className="box-center">
-          <span className="logo">AWWWARDS</span>
-        </div>
-        <div className="box-right">
-          <SubmitButton />
-          <LoginButton />
-        </div>
-      </div>
-  );
+    );
+  }
 }
 
 export default class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.props.onValueChange(true);
+  }
 
   render() {
     return (
         <div className="header" id="header">
           <HeaderTop />
-          <HeaderMain />
+          <HeaderMain valueChange={this.handleChange}/>
         </div>
     );
   }
