@@ -38,14 +38,6 @@ function SearchButton() {
   );
 }
 
-function LoginButton() {
-  return (
-      <div className="btn-login item">
-        <span>REGISTER/LOG IN</span>
-      </div>
-  );
-}
-
 function SubmitButton() {
   return (
       <div className="btn-submit btn-green">
@@ -57,18 +49,17 @@ function SubmitButton() {
 class HeaderMain extends React.Component {
   constructor(props) {
     super(props);
-    this.showSidebar = this.showSidebar.bind(this);
   }
 
-  showSidebar(e) {
-    this.props.valueChange(true);
+  toggleShow(value, type, e) {
+    this.props.valueChange(value, type);
   }
 
   render() {
     return (
         <div className="header-main">
           <div className="box-left">
-            <div className="btn-menu item" onClick={this.showSidebar}>
+            <div className="btn-menu item" onClick={this.toggleShow.bind(this, true, 'sidebar')}>
               <div className="icon-menu">
                 <div className="bar"/>
                 <div className="bar"/>
@@ -83,7 +74,9 @@ class HeaderMain extends React.Component {
           </div>
           <div className="box-right">
             <SubmitButton />
-            <LoginButton />
+            <div className="btn-login item">
+              <span onClick={this.toggleShow.bind(this, true, 'auth')}>REGISTER/LOG IN</span>
+            </div>
           </div>
         </div>
     );
@@ -96,8 +89,8 @@ export default class Header extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
-    this.props.onValueChange(true);
+  handleChange(value, type) {
+    this.props.onValueChange(value, type);
   }
 
   render() {

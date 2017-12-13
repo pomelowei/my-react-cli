@@ -1,14 +1,15 @@
 $color: #262828;
 $seaGreen: #49c5b6;
 
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
-}
-
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  &:before, &:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+  }
 }
 
 body {
@@ -36,6 +37,11 @@ img {
   max-width: 100%;
   height: auto;
   border: none;
+}
+
+input[type="submit"], input[type="text"], input[type="password"] {
+  -webkit-appearance: none;
+  outline: none;
 }
 
 .btn-green {

@@ -6,19 +6,27 @@ import SideBar from './siderbar.jsx'
 import Header from './header.jsx';
 import Footer from './footer.jsx'
 import Index from './index.jsx'
+import Auth from './auth.jsx'
 import ArticleList from './article-list.jsx'
 import '../assets/scss/main.scss';
 
 export default class App extends Component {
   constructor() {
     super();
-    this.state = {'sidebarStatus': false};
-    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      'sidebarStatus': false,
+      'authStatus': false
+    };
+    this.toggleShow = this.toggleShow.bind(this);
     this.closeOverlay = this.closeOverlay.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({'sidebarStatus': e});
+  toggleShow(value, type) {
+    if (type === 'auth') {
+      this.setState({'authStatus': value});
+    } else if (type === 'sidebar') {
+      this.setState({'sidebarStatus': value});
+    }
   }
 
   closeOverlay(e) {
@@ -36,8 +44,9 @@ export default class App extends Component {
         <div className={appClassName}>
           <Router>
             <div className="wrapper" onClick={this.closeOverlay}>
-              <SideBar onValueChange={this.handleChange}/>
-              <Header onValueChange={this.handleChange}/>
+              <Auth authStatus={this.state.authStatus}/>
+              <SideBar onValueChange={this.toggleShow}/>
+              <Header onValueChange={this.toggleShow}/>
               <Route exact path="/" component={Index}/>
               <Route path="/article-list" component={ArticleList}/>
               <Footer />

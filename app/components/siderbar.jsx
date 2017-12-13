@@ -11,7 +11,7 @@ export default class Sidebar extends Component {
   }
 
   closeSidebar() {
-    this.props.onValueChange(false);
+    this.props.onValueChange(false, 'sidebar');
   }
 
   render() {

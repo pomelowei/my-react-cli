@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MockData from './MockData'
+import MockData from '../config/MockData'
 
 import './common'
 import '../assets/scss/article-list.scss';
