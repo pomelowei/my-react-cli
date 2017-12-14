@@ -1,31 +1,8 @@
 $green: #49c5b6;
-
-.article {
-  max-width: 1000px;
-  margin: 20px auto;
-  padding: 10px 0;
-}
-
-.list-header {
-  border-bottom: 1px solid rgba(0, 0, 0, .05);
-  margin-bottom: 20px;
-  span {
-    display: inline-block;
-  }
-  .title {
-    font-size: 30px;
-    padding-bottom: 10px;
-  }
-  .list-topic {
-    padding-bottom: 10px;
-    margin-right: 30px;
-    cursor: pointer;
-    color: $green;
-    &:hover {
-      color: #42AB9E;
-    }
-  }
-}
+$orange: #df6c4f;
+$yellow: #ecd06f;
+$deepGreen: #3c948b;
+$blue: #1a99aa;
 
 .list-container {
   -webkit-box-sizing: border-box;
@@ -68,6 +45,7 @@ $green: #49c5b6;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     border-right: 1px solid rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
   }
   .item-name {
     line-height: 24px;
@@ -77,5 +55,91 @@ $green: #49c5b6;
     font-size: 14px;
     color: rgba(0, 0, 0, .54);
     line-height: 20px;
+  }
+  &:nth-child(4n+1) {
+    circle {
+      stroke: $orange;
+    }
+  }
+  &:nth-child(4n+2) {
+    circle {
+      stroke: $yellow;
+    }
+  }
+  &:nth-child(4n+3) {
+    circle {
+      stroke: $deepGreen;
+    }
+  }
+  &:nth-child(4n+4) {
+    circle {
+      stroke: $blue;
+    }
+  }
+}
+
+.item-score {
+  position: absolute;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  bottom: 20px;
+  svg {
+    width: 80px;
+    height: 80px;
+    float: left;
+    fill: none;
+    stroke: #202121;
+    stroke-width: 1;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    circle {
+      &:nth-child(1) {
+        stroke-opacity: 0.3;
+      }
+    }
+  }
+  .item-percent {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    .int {
+      padding-left: 5px;
+      font-size: 30px;
+      font-weight: 600;
+    }
+    .dec {
+      font-size: 15px;
+      font-weight: 100;
+    }
+  }
+}
+
+.item-more {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  color: $green;
+  &:hover {
+    color: #42AB9E;
+  }
+}
+
+.o-style {
+  circle {
+    stroke: #df6c4f;
+  }
+}
+
+@keyframes createCircle {
+  100% {
+    stroke-dashoffset: 245.044;
   }
 }

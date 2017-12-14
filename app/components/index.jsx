@@ -11,8 +11,7 @@ class BoxItems extends Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      'address': 'https://assets.awwwards.com/awards/media/cache/thumb_417_299/',
-      'data': props.data
+      'address': 'https://assets.awwwards.com/awards/media/cache/thumb_417_299/'
     }
   }
 
@@ -21,7 +20,7 @@ class BoxItems extends Component {
   }
 
   render() {
-    const items = JSON.parse(this.state.data);
+    const items = JSON.parse(this.props.data);
     const BoxItems = items.map((item, index) =>
         <li className="col-3" key={index}>
           <div className="box-item">

@@ -286,7 +286,6 @@ class RegisterForm extends Component {
   }
 }
 
-
 class RegisterTab extends Component {
   constructor(props) {
     super(props);
@@ -309,7 +308,7 @@ class RegisterTab extends Component {
 
   render() {
     let tab = null;
-    if (this.state.formStatus !== 'showRegisterForm') {
+    if (this.state.formStatus !== 'none') {
       tab = <RegisterForm />
     } else {
       tab = <RegisterPanel showRegisterForm={this.openRegisterForm}/>
@@ -325,26 +324,17 @@ class RegisterTab extends Component {
           </div>
         </div>
     );
-
   }
 }
-
 
 export default class Auth extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      authStatus: props.authStatus,
       tabStatus: 'login'
     };
     this.switchTab = this.switchTab.bind(this);
     this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentWillReceiveProps() {
-    this.setState((prevState, props) => ({
-      authStatus: props.authStatus
-    }));
   }
 
   switchTab(value) {
@@ -352,16 +342,16 @@ export default class Auth extends Component {
   }
 
   handleClick() {
-    this.setState({authStatus: false});
+    this.props.onValueChange(false, 'auth');
     this.setState({tabStatus: 'login'});
   }
 
   render() {
     let panel = null, panelClassName = classNames(
         'box-lightBox',
-        {'open': this.state.authStatus}
+        {'open': this.props.authStatus}
     );
-    if (this.state.authStatus) {
+    if (this.props.authStatus) {
       if (this.state.tabStatus === 'login') {
         panel = <LoginTab onSwitch={this.switchTab}/>
       } else if (this.state.tabStatus === 'register') {

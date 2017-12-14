@@ -7,7 +7,7 @@ import Header from './header.jsx';
 import Footer from './footer.jsx'
 import Index from './index.jsx'
 import Auth from './auth.jsx'
-import ArticleList from './article-list.jsx'
+import Article from './article.jsx'
 import '../assets/scss/main.scss';
 
 export default class App extends Component {
@@ -44,11 +44,11 @@ export default class App extends Component {
         <div className={appClassName}>
           <Router>
             <div className="wrapper" onClick={this.closeOverlay}>
-              <Auth authStatus={this.state.authStatus}/>
+              <Auth authStatus={this.state.authStatus} onValueChange={this.toggleShow}/>
               <SideBar onValueChange={this.toggleShow}/>
               <Header onValueChange={this.toggleShow}/>
               <Route exact path="/" component={Index}/>
-              <Route path="/article-list" component={ArticleList}/>
+              <Route path="/article" component={Article}/>
               <Footer />
             </div>
           </Router>

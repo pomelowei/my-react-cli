@@ -5,13 +5,18 @@ export default class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.closeSidebar = this.closeSidebar.bind(this);
-    this.state = {
-      activeRouter: 'home'
-    }
+    this.showAuthFrame = this.showAuthFrame.bind(this);
   }
 
   closeSidebar() {
     this.props.onValueChange(false, 'sidebar');
+  }
+
+  showAuthFrame() {
+    let _me = this;
+    setTimeout(function () {
+      _me.props.onValueChange(true, 'auth');
+    }, 600);
   }
 
   render() {
@@ -25,13 +30,13 @@ export default class Sidebar extends Component {
             </div>
             <ul className="menu" onClick={this.closeSidebar}>
               <li>
-                <NavLink to="/auth" className="item" activeClassName="active">Register / Login</NavLink>
+                <span className="item" onClick={this.showAuthFrame}>Register / Login</span>
               </li>
               <li>
                 <NavLink exact to="/" className="item" activeClassName="active">Home</NavLink>
               </li>
               <li>
-                <NavLink to="/article-list" className="item" activeClassName="active">Article</NavLink>
+                <NavLink to="/article" className="item" activeClassName="active">Article</NavLink>
               </li>
               <li>
                 <span className="item">Nominees</span>

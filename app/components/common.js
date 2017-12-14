@@ -1,6 +1,6 @@
 Date.prototype.Format = function (fmt, local, utc) {
-  var tempTime = this;
-  var o = {};
+  let tempTime = this;
+  let o = {};
   if (utc) {
     o = {
       "y+": tempTime.getUTCFullYear(),
@@ -25,13 +25,13 @@ Date.prototype.Format = function (fmt, local, utc) {
     };
   }
 
-  for (var k in o) {
+  for (let k in o) {
     if (new RegExp("(" + k + ")").test(fmt)) {
       if (k == "y+") {
         fmt = fmt.replace(RegExp.$1, ("" + o[k]).substr(4 - RegExp.$1.length));
       }
       else if (k == "S+") {
-        var lens = RegExp.$1.length;
+        let lens = RegExp.$1.length;
         lens = lens == 1 ? 3 : lens;
         fmt = fmt.replace(RegExp.$1, ("00" + o[k]).substr(("" + o[k]).length - 1, lens));
       }
@@ -41,9 +41,9 @@ Date.prototype.Format = function (fmt, local, utc) {
     }
   }
   if (local) {
-    var timeOff = new Date().getTimezoneOffset() / 60;
-    var sign = Math.sign(timeOff);
-    var zone = (("00" + Math.abs(timeOff) + "00").substr(("" + Math.abs(timeOff)).length));
+    let timeOff = new Date().getTimezoneOffset() / 60;
+    let sign = Math.sign(timeOff);
+    let zone = (("00" + Math.abs(timeOff) + "00").substr(("" + Math.abs(timeOff)).length));
     zone = sign === -1 ? '+' + zone.toString() : '-' + zone.toString();
     fmt = fmt + ' ' + zone;
   }
