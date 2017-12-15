@@ -49,3 +49,28 @@ Date.prototype.Format = function (fmt, local, utc) {
   }
   return fmt;
 };
+
+export const globalInfo = {
+  requireParams: function (obj) {
+    let rangeArr = [],
+        param = '';
+    if (obj && typeof obj === 'object') {
+      if (rangeArr.length === 0) {
+        rangeArr.push('?')
+      }
+      for (let i in obj) {
+        if (obj.hasOwnProperty(i)) {
+          if (obj[i] !== '') {
+            rangeArr.push(i);
+            rangeArr.push('=');
+            rangeArr.push(obj[i]);
+            rangeArr.push('&');
+          }
+        }
+      }
+      param = rangeArr.join('').replace(/&$/, '');
+      return param
+    }
+  }
+};
+

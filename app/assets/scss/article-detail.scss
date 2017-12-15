@@ -3,3 +3,51 @@ $orange: #df6c4f;
 $yellow: #ecd06f;
 $deepGreen: #3c948b;
 $blue: #1a99aa;
+
+img {
+  vertical-align: bottom;
+}
+
+.display-img {
+  text-align: center;
+  img {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+.thumbnail-images {
+  padding: 10px 0;
+  li {
+    padding: 10px;
+    display: inline-block;
+  }
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  background: #ffffff;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  td {
+    border: solid 1px #b4aba1;
+    min-width: 100px;
+    padding: 10px;
+  }
+  th {
+    border: solid 1px #b4aba1;
+  }
+  label {
+    float: left;
+    width: 20%;
+    display: inline-block;
+    max-width: 100%;
+    margin: 5px 0;
+    font-weight: 700;
+  }
+}

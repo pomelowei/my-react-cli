@@ -41,6 +41,13 @@ class ListHeader extends Component {
             'list-topic',
             {'topic-active': (this.props.topic === 3)}
         )
+      }, {
+        name: 'IE',
+        id: 4,
+        className: classNames(
+            'list-topic',
+            {'topic-active': (this.props.topic === 4)}
+        )
       }
     ];
     const topicItem = topics.map((item, index) =>
@@ -61,15 +68,15 @@ export default class Article extends Component {
   constructor() {
     super();
     this.state = {
-      tab: 'list',
+      tab: 'detail',
       topic: 1,
-      article: 0
+      article: 6
     };
-    this.switchTab = this.switchTab.bind(this);
+    this.switchArticle = this.switchArticle.bind(this);
     this.switchTopic = this.switchTopic.bind(this);
   }
 
-  switchTab(id, type) {
+  switchArticle(id, type) {
     this.setState({article: id, tab: type});
   }
 
@@ -82,14 +89,14 @@ export default class Article extends Component {
       return (
           <div className="article">
             <ListHeader topic={this.state.topic} onSwitch={this.switchTopic}/>
-            <ArticleList onClick={this.switchTab}/>
+            <ArticleList topic={this.state.topic} onClick={this.switchArticle}/>
           </div>
       );
     } else {
       return (
           <div className="article">
             <ListHeader topic={this.state.topic} onSwitch={this.switchTopic}/>
-            <ArticleDetail id={this.state.article} onClick={this.switchTab}/>
+            <ArticleDetail id={this.state.article} onClick={this.switchArticle}/>
           </div>
       );
     }
