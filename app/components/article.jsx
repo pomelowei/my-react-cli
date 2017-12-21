@@ -3,8 +3,8 @@ import classNames from 'classnames'
 
 import './common'
 import '../assets/scss/article.scss';
-import ArticleList from './article-list.jsx'
-import ArticleDetail from './article-detail.jsx'
+import ArticleList from './article-list'
+import ArticleDetail from './article-detail'
 
 class ListHeader extends Component {
   constructor(props) {

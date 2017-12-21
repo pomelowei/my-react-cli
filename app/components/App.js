@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import classNames  from 'classnames';
 
-import SideBar from './siderbar.jsx'
-import Header from './header.jsx';
-import Footer from './footer.jsx'
-import Index from './index.jsx'
-import Auth from './auth.jsx'
-import Article from './article.jsx'
+import SideBar from './siderbar'
+import Header from './header';
+import Footer from './footer'
+import Index from './index'
+import Auth from './auth'
+import Article from './article'
 import '../assets/scss/main.scss';
 
 export default class App extends Component {

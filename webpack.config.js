@@ -129,6 +129,10 @@ const config = {
     ]
   },
 
+  resolve: {
+    extensions: [".js", ".json", ".jsx", ".css"],
+  },
+
   plugins: [
     new webpack.LoaderOptionsPlugin({
       test: /\.js$/,
